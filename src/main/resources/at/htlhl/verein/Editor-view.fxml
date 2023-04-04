@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.htlhl.verein.EditorController">
+   <children>
+      <BorderPane prefHeight="400.0" prefWidth="600.0">
+         <top>
+            <ToolBar minWidth="1024.0" prefHeight="40.0" prefWidth="1024.0" BorderPane.alignment="CENTER">
+               <items>
+                  <Label text="KYTH Register">
+                     <font>
+                        <Font name="System Bold Italic" size="24.0" />
+                     </font>
+                  </Label>
+               </items>
+            </ToolBar>
+         </top>
+         <bottom>
+            <GridPane minHeight="768.0" minWidth="1024.0" BorderPane.alignment="CENTER">
+              <columnConstraints>
+                  <ColumnConstraints hgrow="NEVER" maxWidth="10.0" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="70.0" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="450.0" minWidth="10.0" prefWidth="200.0" />
+                <ColumnConstraints halignment="LEFT" hgrow="NEVER" maxWidth="95.7999389648437" minWidth="0.0" prefWidth="28.0" />
+                  <ColumnConstraints halignment="RIGHT" hgrow="NEVER" maxWidth="370.0" minWidth="8.0" prefWidth="370.0" />
+                  <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" maxWidth="90.0" minWidth="0.0" prefWidth="0.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="50.0" vgrow="NEVER" />
+                  <RowConstraints maxHeight="20.0" minHeight="10.0" prefHeight="20.0" vgrow="NEVER" />
+                <RowConstraints maxHeight="279.1999877929687" minHeight="10.0" prefHeight="258.3999938964844" valignment="TOP" vgrow="NEVER" />
+                  <RowConstraints maxHeight="51.99997558593748" minHeight="10.0" prefHeight="26.4000244140625" vgrow="NEVER" />
+              </rowConstraints>
+               <children>
+                  <Button fx:id="logoutButton" mnemonicParsing="false" onAction="#onLogout" text="%logoutButton.text" GridPane.columnIndex="5">
+                     <GridPane.margin>
+                        <Insets />
+                     </GridPane.margin>
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <TextField fx:id="searchField" onAction="#onFilterUUIDAction" promptText="%promptSearch.text" GridPane.columnIndex="2" />
+                  <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                     <children>
+                        <ScrollPane hbarPolicy="ALWAYS" layoutX="-67.0" layoutY="10.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="633.0" prefWidth="912.0" vbarPolicy="ALWAYS">
+                          <content>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="222.0" prefWidth="388.0">
+                                 <children>
+                                    <TableView fx:id="tableView" prefHeight="633.0" prefWidth="912.0">
+                                      <columns>
+                                        <TableColumn fx:id="uuid" prefWidth="253.59998017549515" text="%uuid.text" />
+                                        <TableColumn fx:id="number" prefWidth="98.40005493164062" text="%number.text" />
+                                          <TableColumn fx:id="name" prefWidth="180.800048828125" text="%name.text" />
+                                          <TableColumn fx:id="location" prefWidth="118.39996337890625" text="%location.text" />
+                                          <TableColumn fx:id="chairman" prefWidth="135.99993896484375" text="%chairman.text" />
+                                          <TableColumn fx:id="yearOfCreation" minWidth="0.0" prefWidth="50.4000244140625" text="%yearOfCreation.text" />
+                                          <TableColumn fx:id="openChange" prefWidth="70.39990234375" text="%openChange.text" />
+                                      </columns>
+                                    </TableView>
+                                 </children></AnchorPane>
+                          </content>
+                        </ScrollPane>
+                     </children>
+                  </Pane>
+                  <Button fx:id="searchButton" alignment="CENTER" mnemonicParsing="false" onAction="#onFilterUUIDAction" text="🔎" GridPane.columnIndex="3" />
+                  <Button fx:id="newEntryButton" alignment="CENTER" mnemonicParsing="false" onAction="#onNewEntry" prefWidth="85.0" text="%newEntryButton.text" GridPane.columnIndex="5" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
+                     <GridPane.margin>
+                        <Insets bottom="40.0" />
+                     </GridPane.margin>
+                  </Button>
+                  <Button fx:id="refreshButton" mnemonicParsing="false" onAction="#onRefreshButton" text="⟳" GridPane.columnIndex="4">
+                     <GridPane.margin>
+                        <Insets right="10.0" />
+                     </GridPane.margin>
+                  </Button>
+                  <Button fx:id="markButton" mnemonicParsing="false" onAction="#onMarkAction" prefWidth="85.0" text="%markButton.text" GridPane.columnIndex="5" GridPane.rowIndex="2" GridPane.valignment="BOTTOM" />
+                  <CheckBox fx:id="markedCheckBox" mnemonicParsing="false" onAction="#showMarkedList" prefHeight="26.0" prefWidth="85.0" text="%markedButton.text" GridPane.columnIndex="5" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
+                     <GridPane.margin>
+                        <Insets bottom="80.0" />
+                     </GridPane.margin>
+                  </CheckBox>
+               </children>
+            </GridPane>
+         </bottom>
+      </BorderPane>
+   </children>
+</AnchorPane>
