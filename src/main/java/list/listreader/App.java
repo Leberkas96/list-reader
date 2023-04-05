@@ -1,4 +1,4 @@
-package list;
+package list.listreader;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

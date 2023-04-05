@@ -1,4 +1,4 @@
-package list;
+package list.listreader;
 
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;

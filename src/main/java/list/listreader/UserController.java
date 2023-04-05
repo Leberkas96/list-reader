@@ -1,4 +1,4 @@
-package list;
+package list.listreader;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
