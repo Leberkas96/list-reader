@@ -19,13 +19,15 @@ public class CsvManager {
         ArrayList<List> tmpList = new ArrayList<>();
         try {
             for (String line : Files.readAllLines(path)) {
-                if(line.contains(";")) {
+                if (line.contains(";")) {
                     String[] text = line.split(";");
                     tmpList.add(new List(text[0], Boolean.parseBoolean(text[1])));
                 } else {
                     tmpList.add(new List(line, false));
                 }
             }
+
+            setData(tmpList);
         } catch (IOException ioex) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle(App.APP_NAME);
@@ -36,41 +38,12 @@ public class CsvManager {
         return tmpList;
     }
 
-    /**
-     * @param index
-     * @param change
-     * @param assList "setData" schreibt das CSV File neu, indem es die Werte erneuert
-     * @throws IOException
-     */
-
-    public static void setData(int index, boolean change, ArrayList<List> assList) throws IOException {
-        var fileName = Paths.get("list.csv");
-        var writeObjects = Files.newBufferedWriter(fileName);
-        assList.get(index).setCheckProperty(change);
-
-        for (List ass : assList) {
-            writeObjects.write(ass.getContentsProperty() + ";" + ass.getCheckProperty() + "\n");
+    public static void setData(ArrayList<List> assList) throws IOException {
+        var writeObjects = Files.newBufferedWriter(Paths.get("list.csv"));
+        for (List list : assList) {
+            writeObjects.write(list.getContentsProperty() + ";" + list.getCheckProperty() + "\n");
         }
         writeObjects.close();
-    }
-
-    /**
-     * @param assList
-     * @param assOb   "addData" fügt neue Daten einzeln in die csv hinzu
-     * @throws IOException
-     */
-
-    public static void addData(ArrayList<List> assList, List assOb) throws IOException {
-        assList.add(assOb);
-        var fileName = Paths.get("list.csv");
-        var writeObjects = Files.newBufferedWriter(fileName);
-        for (List ass : assList) {
-            writeObjects.write(ass.getContentsProperty() + ";" + ass.getCheckProperty() + "\n");
-        }
-
-        writeObjects.close();
-
-
     }
 }
 
