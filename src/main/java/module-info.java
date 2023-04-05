@@ -1,12 +1,11 @@
-module ITP3B.B5.Verein {
+module at.htlhl.bschach {
     requires javafx.controls;
     requires javafx.fxml;
 
     requires org.controlsfx.controls;
-    requires com.fasterxml.jackson.databind;
-    requires org.junit.jupiter.api;
-    requires javafx.base;
+    requires java.desktop;
 
-    opens at.htlhl.verein to javafx.fxml;
-    exports at.htlhl.verein;
+    opens list to javafx.fxml;
+    exports list;
+    //Removed module in compiler settings: --add-exports java.datatransfer/java.awt=at.htlhl.bschach,at.htlhl.bschach
 }
