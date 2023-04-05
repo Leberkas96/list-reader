@@ -17,9 +17,11 @@ public class List {
         this.contentsProperty.set(contents);
         this.checkProperty.set(check);
     }
+
     public String getContentsProperty() {
         return contentsProperty.get();
     }
+
     public void setContentsProperty(String contentsProperty) {
         this.contentsProperty.set(contentsProperty);
     }

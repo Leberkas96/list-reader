@@ -20,38 +20,22 @@ import java.util.ResourceBundle;
 public class UserController implements Initializable {
     private ListRegister listRegister = ListRegister.getRegister();
     @FXML
-    public Button refreshButton;
-    @FXML
-    public Button searchButton;
-    @FXML
-    private TextField searchField;
-    /*@FXML
-    private ComboBox comb;
-     */
-
-    @FXML
     private TableView<List> tableView;
     @FXML
     private TableColumn<List, String> contents;
     @FXML
     private TableColumn<List, Boolean> check;
+    @FXML
+    public Button refreshButton;
+    @FXML
+    public Button searchButton;
+    @FXML
+    private TextField searchField;
 
     ObservableList<List> observableList = FXCollections.observableArrayList(listRegister.getVereinList());
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        //ObservableList<String> list = FXCollections.observableArrayList("<=", "<", "=", ">=", ">");
-        //comb.setItems(list);
-        //comb.getSelectionModel().selectFirst();
-
-        //uuid.setCellValueFactory(new PropertyValueFactory<>("uuidProperty"));
-        /*
-        name.setCellValueFactory(new PropertyValueFactory<>("nameProperty"));
-        number.setCellValueFactory(new PropertyValueFactory<>("numberProperty"));
-        location.setCellValueFactory(new PropertyValueFactory<>("locationProperty"));
-        chairman.setCellValueFactory(new PropertyValueFactory<>("chairmanProperty"));
-        yearOfCreation.setCellValueFactory(new PropertyValueFactory<>("yearOfCreationProperty"));
-         */
         contents.setCellValueFactory(new PropertyValueFactory<>("contentsProperty"));
         check.setCellValueFactory(new PropertyValueFactory<>("checkProperty"));
         tableView.setItems(observableList);
@@ -99,6 +83,7 @@ public class UserController implements Initializable {
         tableView.refresh();
     }
      */
+
     /**
      * When the Refresh-Button is clicked, the register gets loaded and all filters are reset.
      */
