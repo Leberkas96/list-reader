@@ -4,11 +4,11 @@ import java.util.ArrayList;
 
 public class ListRegister {
     private static ListRegister register;
-    private ArrayList<List> vereinList;
+    private ArrayList<List> lists;
 
     private ListRegister() {
         //List of all the Items
-        vereinList = CsvManager.loadData();
+        lists = CsvManager.loadData();
     }
 
     public static ListRegister getRegister() {
@@ -19,7 +19,7 @@ public class ListRegister {
     }
 
     public ArrayList<List> getList() {
-        return vereinList;
+        return lists;
     }
 
     public static void setRegister(ListRegister register) {
@@ -27,11 +27,11 @@ public class ListRegister {
     }
 
     public void setList(ArrayList<List> lists) {
-        this.vereinList = lists;
+        this.lists = lists;
     }
 
     public void loadRegister() {
-        this.vereinList = CsvManager.loadData();
+        this.lists = CsvManager.loadData();
     }
 }
 
