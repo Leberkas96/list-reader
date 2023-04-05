@@ -9,8 +9,5 @@
         <module name="list-reader" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="ITP3B-B5-Verein" target="17" />
-    </bytecodeTargetLevel>
   </component>
 </project>
