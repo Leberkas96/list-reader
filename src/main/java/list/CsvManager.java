@@ -19,8 +19,12 @@ public class CsvManager {
         ArrayList<List> tmpList = new ArrayList<>();
         try {
             for (String line : Files.readAllLines(path)) {
-                String[] text = line.split(";");
-                tmpList.add(new List(text[0], Boolean.parseBoolean(text[1])));
+                if(line.contains(";")) {
+                    String[] text = line.split(";");
+                    tmpList.add(new List(text[0], Boolean.parseBoolean(text[1])));
+                } else {
+                    tmpList.add(new List(line, false));
+                }
             }
         } catch (IOException ioex) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
