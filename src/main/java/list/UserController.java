@@ -6,10 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Window;
 
@@ -26,6 +23,8 @@ public class UserController implements Initializable {
     @FXML
     private TableColumn<List, Boolean> check;
     @FXML
+    private TableColumn<List, CheckBox> checkBox;
+    @FXML
     public Button refreshButton;
     @FXML
     public Button searchButton;
@@ -38,6 +37,7 @@ public class UserController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         contents.setCellValueFactory(new PropertyValueFactory<>("contentsProperty"));
         check.setCellValueFactory(new PropertyValueFactory<>("checkProperty"));
+        checkBox.setCellValueFactory(new PropertyValueFactory<>("checkBox"));
         tableView.setItems(observableList);
         tableView.refresh();
     }
@@ -48,8 +48,8 @@ public class UserController implements Initializable {
     @FXML
     protected void onFilter(ActionEvent event) {
         System.out.println("onFilter method active");
-        contents.getCellValueFactory();
-        observableList = FXCollections.observableArrayList(listRegister.getList());
+        //contents.getCellValueFactory();
+        //observableList = FXCollections.observableArrayList(listRegister.getList());
     }
     /*
     @FXML

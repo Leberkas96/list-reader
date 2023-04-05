@@ -51,6 +51,7 @@
                         <columns>
                            <TableColumn fx:id="contents" prefWidth="199.0" text="Contents" />
                            <TableColumn fx:id="check" prefWidth="189.0" text="Check" />
+                           <TableColumn fx:id="checkBox" prefWidth="213.0" text="Checkbox" />
                         </columns></TableView>
                         </AnchorPane>
                     </ScrollPane>
