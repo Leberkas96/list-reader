@@ -52,8 +52,6 @@ public class UserController implements Initializable {
     /*
     @FXML
     protected void onFilterYearAction(ActionEvent event) {
-        System.out.println("Servas1");
-                System.out.println("Servas2");
                 uuid.getCellValueFactory();
                 observableList = FXCollections.observableArrayList(listRegister.getVereinList());
                 tableView.setItems(observableList);
@@ -77,8 +75,6 @@ public class UserController implements Initializable {
                         case ">":
                             showGreaterThan(number);
                     }
-
-
         }
         tableView.refresh();
     }
