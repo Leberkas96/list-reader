@@ -18,7 +18,7 @@ public class ListRegister {
         return register;
     }
 
-    public ArrayList<List> getVereinList() {
+    public ArrayList<List> getList() {
         return vereinList;
     }
 
@@ -26,8 +26,8 @@ public class ListRegister {
         ListRegister.register = register;
     }
 
-    public void setVereinList(ArrayList<List> vereinList) {
-        this.vereinList = vereinList;
+    public void setList(ArrayList<List> lists) {
+        this.vereinList = lists;
     }
 
     public void loadRegister() {

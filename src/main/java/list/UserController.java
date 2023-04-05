@@ -32,7 +32,7 @@ public class UserController implements Initializable {
     @FXML
     private TextField searchField;
 
-    ObservableList<List> observableList = FXCollections.observableArrayList(listRegister.getVereinList());
+    ObservableList<List> observableList = FXCollections.observableArrayList(listRegister.getList());
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -48,6 +48,8 @@ public class UserController implements Initializable {
     @FXML
     protected void onFilter(ActionEvent event) {
         System.out.println("onFilter method active");
+        contents.getCellValueFactory();
+        observableList = FXCollections.observableArrayList(listRegister.getList());
     }
     /*
     @FXML
@@ -88,7 +90,7 @@ public class UserController implements Initializable {
         listRegister.loadRegister();
         contents.getCellValueFactory();
         check.getCellValueFactory();
-        ObservableList<List> observableList = FXCollections.observableArrayList(listRegister.getVereinList());
+        ObservableList<List> observableList = FXCollections.observableArrayList(listRegister.getList());
         tableView.setItems(observableList);
     }
 

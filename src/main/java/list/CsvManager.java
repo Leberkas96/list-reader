@@ -10,7 +10,7 @@ import java.util.ArrayList;
 public class CsvManager {
 
     /**
-     * "loadData" ladet die Daten der csv in das AssRegister hinein
+     * "loadData" loads the contents of the csv into the ListRegister
      *
      * @return
      */
