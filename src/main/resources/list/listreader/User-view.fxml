@@ -24,6 +24,8 @@
                         <Font name="System Bold Italic" size="24.0" />
                     </font>
                 </Label>
+            <Pane prefHeight="35.0" prefWidth="782.0" />
+            <Button fx:id="saveButton" mnemonicParsing="false" onAction="#onSave" text="Save" />
             </ToolBar>
         </top>
         <bottom>

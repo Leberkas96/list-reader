@@ -10,6 +10,8 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Window;
 
+import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -29,7 +31,10 @@ public class UserController implements Initializable {
     @FXML
     public Button searchButton;
     @FXML
+    private Button saveButton;
+    @FXML
     private TextField searchField;
+    private List list;
 
     ObservableList<List> observableList = FXCollections.observableArrayList(listRegister.getList());
 
@@ -92,6 +97,22 @@ public class UserController implements Initializable {
         check.getCellValueFactory();
         ObservableList<List> observableList = FXCollections.observableArrayList(listRegister.getList());
         tableView.setItems(observableList);
+    }
+    @FXML
+    protected void onSave(ActionEvent event) {
+        System.out.println("Save clicked ..." + event.getSource());
+
+        File configFile = new File(App.MODEL_FILE_PATH);
+        try {
+            App.JSON_MAPPER.writerWithDefaultPrettyPrinter().writeValue(configFile, list);
+        } catch (IOException ex) {
+            System.err.println("Problem during saving file: " + ex.getMessage());
+
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.initOwner(findParentWindow(event));
+            alert.setTitle(App.APP_NAME);
+            alert.showAndWait();
+        }
     }
 
     private Window findParentWindow(ActionEvent event) {
