@@ -45,6 +45,14 @@ public class CsvManager {
         }
         writeObjects.close();
     }
+    public static void setData(int index, boolean change, ArrayList<List> listList) throws IOException {
+        var writeObjects = Files.newBufferedWriter(Paths.get("list.csv"));
+        listList.get(index).setCheckProperty(change);
+        for (List list : listList) {
+            writeObjects.write(list.getContentsProperty() + ";" + list.getCheckProperty() + "\n");
+        }
+        writeObjects.close();
+    }
 }
 
 

@@ -21,6 +21,11 @@ public class App extends Application {
         try {
             FXMLLoader fxmlLoader = findFXMLLoader("User-view");
             scene = new Scene(fxmlLoader.load(), 1024, 768);
+            UserController userController = fxmlLoader.getController();
+            List list = new List();
+
+            userController.init(list);
+
             stage.setTitle(APP_NAME);
             stage.setScene(scene);
             stage.show();

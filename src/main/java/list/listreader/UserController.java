@@ -9,6 +9,10 @@ import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Window;
+import org.controlsfx.control.PropertySheet;
+import org.controlsfx.validation.ValidationResult;
+import org.controlsfx.validation.ValidationSupport;
+import org.controlsfx.validation.Validator;
 
 import java.io.File;
 import java.io.IOException;
@@ -16,7 +20,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 
-public class UserController implements Initializable {
+public class UserController {
     private ListRegister listRegister = ListRegister.getRegister();
     @FXML
     private TableView<List> tableView;
@@ -38,13 +42,24 @@ public class UserController implements Initializable {
 
     ObservableList<List> observableList = FXCollections.observableArrayList(listRegister.getList());
 
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
+    public void init(List list) {
+        this.list = list;
         contents.setCellValueFactory(new PropertyValueFactory<>("contentsProperty"));
         check.setCellValueFactory(new PropertyValueFactory<>("checkProperty"));
         checkBox.setCellValueFactory(new PropertyValueFactory<>("checkBox"));
         tableView.setItems(observableList);
         tableView.refresh();
+        initBinding();
+    }
+
+    private void initBinding() {
+
+    }
+
+    private void updateModel(List newList) {
+        newList.setContentsProperty(newList.getContentsProperty());
+        newList.setCheckProperty(newList.getCheckProperty());
+
     }
 
     /**
@@ -98,20 +113,59 @@ public class UserController implements Initializable {
         ObservableList<List> observableList = FXCollections.observableArrayList(listRegister.getList());
         tableView.setItems(observableList);
     }
-    @FXML
-    protected void onSave(ActionEvent event) {
-        System.out.println("Save clicked ..." + event.getSource());
 
+    @FXML
+    protected void onSave(ActionEvent event) throws IOException {
+        System.out.println("Save clicked ..." + event.getSource());
+        ObservableList<List> observableList = FXCollections.observableArrayList(listRegister.getList());
+        tableView.setItems(observableList);
+
+        //System.out.println(observableList.get(tableView.getSelectionModel().getFocusedIndex()).getCheckBox().isSelected());
+        /*
+        for (int i=0; 10>i;i++) {
+            System.out.println(tableView.getColumns().get(2).getCellObservableValue(i).getValue());
+        }
+         */
+        if (observableList.get(tableView.getSelectionModel().getFocusedIndex()).getCheckBox().isSelected()) {
+            observableList.get(tableView.getSelectionModel().getFocusedIndex()).setCheckProperty(true);
+            CsvManager.setData(tableView.getSelectionModel().getFocusedIndex(), true, listRegister.getList());
+        } else {
+            observableList.get(tableView.getSelectionModel().getFocusedIndex()).setCheckProperty(false);
+            CsvManager.setData(tableView.getSelectionModel().getFocusedIndex(), false, listRegister.getList());
+        }
+        listRegister.loadRegister();
+        tableView.setItems(observableList);
+        tableView.refresh();
+        /*
         File configFile = new File(App.MODEL_FILE_PATH);
         try {
             App.JSON_MAPPER.writerWithDefaultPrettyPrinter().writeValue(configFile, list);
         } catch (IOException ex) {
             System.err.println("Problem during saving file: " + ex.getMessage());
-
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.initOwner(findParentWindow(event));
             alert.setTitle(App.APP_NAME);
             alert.showAndWait();
+        }
+         */
+    }
+
+    @FXML
+    protected void onLoad(ActionEvent event) {
+        System.out.println("Load clicked ... " + event.getSource());
+
+        File configFile = new File(App.MODEL_FILE_PATH);
+        if (configFile.exists()) {
+            try {
+                List list = App.JSON_MAPPER.readValue(configFile, List.class);
+                updateModel(list);
+            } catch (IOException ex) {
+                System.err.println("Problem during loading file: " + ex.getMessage());
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.initOwner(findParentWindow(event));
+                alert.setTitle(App.APP_NAME);
+                alert.showAndWait();
+            }
         }
     }
 
