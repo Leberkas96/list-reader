@@ -53,7 +53,9 @@ public class UserController {
     }
 
     private void initBinding() {
-
+        for (int i = 0; 10 < i; i++) {
+            checkBox.getCellObservableValue(i).getValue().selectedProperty().bindBidirectional(list.getCheckBoxProperty().selectedProperty());
+        }
     }
 
     private void updateModel(List newList) {
@@ -120,34 +122,12 @@ public class UserController {
         ObservableList<List> observableList = FXCollections.observableArrayList(listRegister.getList());
         tableView.setItems(observableList);
 
-        //System.out.println(observableList.get(tableView.getSelectionModel().getFocusedIndex()).getCheckBox().isSelected());
-        /*
-        for (int i=0; 10>i;i++) {
-            System.out.println(tableView.getColumns().get(2).getCellObservableValue(i).getValue());
+        for (int i = 0; 10 < i; i++) {
+            checkBox.getCellObservableValue(i).getValue().selectedProperty().bindBidirectional(list.getCheckBoxProperty().selectedProperty());
         }
-         */
-        if (observableList.get(tableView.getSelectionModel().getFocusedIndex()).getCheckBox().isSelected()) {
-            observableList.get(tableView.getSelectionModel().getFocusedIndex()).setCheckProperty(true);
-            CsvManager.setData(tableView.getSelectionModel().getFocusedIndex(), true, listRegister.getList());
-        } else {
-            observableList.get(tableView.getSelectionModel().getFocusedIndex()).setCheckProperty(false);
-            CsvManager.setData(tableView.getSelectionModel().getFocusedIndex(), false, listRegister.getList());
-        }
+        CsvManager.setData(tableView.getSelectionModel().getFocusedIndex(), false, listRegister.getList());
         listRegister.loadRegister();
-        tableView.setItems(observableList);
         tableView.refresh();
-        /*
-        File configFile = new File(App.MODEL_FILE_PATH);
-        try {
-            App.JSON_MAPPER.writerWithDefaultPrettyPrinter().writeValue(configFile, list);
-        } catch (IOException ex) {
-            System.err.println("Problem during saving file: " + ex.getMessage());
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.initOwner(findParentWindow(event));
-            alert.setTitle(App.APP_NAME);
-            alert.showAndWait();
-        }
-         */
     }
 
     @FXML

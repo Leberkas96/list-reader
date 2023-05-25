@@ -1,10 +1,10 @@
-item1;true
-item2;true
-item3;false
+item1;false
+item2;false
+item3;true
 item4;false
-item5;false
+item5;true
 item6;false
 item7;false
 item8;false
-item9;true
-item10;false
+item9;false
+item10;true

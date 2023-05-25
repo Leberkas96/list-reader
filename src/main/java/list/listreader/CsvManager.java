@@ -12,7 +12,7 @@ public class CsvManager {
     /**
      * "loadData" loads the contents of the csv into the ListRegister
      *
-     * @return
+     * @return is an ArrayList of the Object List which contains the item and a boolean
      */
     public static ArrayList<List> loadData() {
         var path = Paths.get("list.csv");
@@ -45,11 +45,12 @@ public class CsvManager {
         }
         writeObjects.close();
     }
+
     public static void setData(int index, boolean change, ArrayList<List> listList) throws IOException {
         var writeObjects = Files.newBufferedWriter(Paths.get("list.csv"));
         listList.get(index).setCheckProperty(change);
         for (List list : listList) {
-            writeObjects.write(list.getContentsProperty() + ";" + list.getCheckProperty() + "\n");
+            writeObjects.write(list.getContentsProperty() + ";" + list.getCheckBoxProperty().isSelected() + "\n");
         }
         writeObjects.close();
     }

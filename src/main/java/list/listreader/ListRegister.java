@@ -2,6 +2,9 @@ package list.listreader;
 
 import java.util.ArrayList;
 
+/**
+ * Manages the ArrayList with the List objects
+ */
 public class ListRegister {
     private static ListRegister register;
     private ArrayList<List> lists;
