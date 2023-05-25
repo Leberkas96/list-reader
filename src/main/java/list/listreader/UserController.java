@@ -118,6 +118,7 @@ public class UserController {
 
     @FXML
     protected void onSave(ActionEvent event) throws IOException {
+        //Sets the first boolean in the Check Column to false when saved
         System.out.println("Save clicked ..." + event.getSource());
         ObservableList<List> observableList = FXCollections.observableArrayList(listRegister.getList());
         tableView.setItems(observableList);
@@ -128,28 +129,5 @@ public class UserController {
         CsvManager.setData(tableView.getSelectionModel().getFocusedIndex(), false, listRegister.getList());
         listRegister.loadRegister();
         tableView.refresh();
-    }
-
-    @FXML
-    protected void onLoad(ActionEvent event) {
-        System.out.println("Load clicked ... " + event.getSource());
-
-        File configFile = new File(App.MODEL_FILE_PATH);
-        if (configFile.exists()) {
-            try {
-                List list = App.JSON_MAPPER.readValue(configFile, List.class);
-                updateModel(list);
-            } catch (IOException ex) {
-                System.err.println("Problem during loading file: " + ex.getMessage());
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.initOwner(findParentWindow(event));
-                alert.setTitle(App.APP_NAME);
-                alert.showAndWait();
-            }
-        }
-    }
-
-    private Window findParentWindow(ActionEvent event) {
-        return ((Node) event.getTarget()).getScene().getWindow();
     }
 }
