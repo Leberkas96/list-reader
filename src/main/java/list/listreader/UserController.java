@@ -61,48 +61,27 @@ public class UserController {
     private void updateModel(List newList) {
         newList.setContentsProperty(newList.getContentsProperty());
         newList.setCheckProperty(newList.getCheckProperty());
-
     }
 
     /**
      * Once the Filter-Button is clicked, when a number is entered with an operator selected, only the qualifying years will be shown.
      */
     @FXML
-    protected void onFilter(ActionEvent event) {
-        System.out.println("onFilter method active");
-        //contents.getCellValueFactory();
-        //observableList = FXCollections.observableArrayList(listRegister.getList());
-    }
-    /*
-    @FXML
-    protected void onFilterYearAction(ActionEvent event) {
-                uuid.getCellValueFactory();
-                observableList = FXCollections.observableArrayList(listRegister.getVereinList());
-                tableView.setItems(observableList);
-                String operator = comb.getSelectionModel().getSelectedItem().toString();
-                if (searchField.textProperty().getValue() != "") {
-                    int number = Integer.parseInt(searchField.textProperty().getValue());
-                    switch (operator) {
-                        case "<":
-                            showLessThan(number);
-                            break;
-                        case "<=":
-                            showLessEqualsThan(number);
-                            break;
-                        case "=":
-                            showEquals(number);
-                            System.out.println(observableList.size());
-                            break;
-                        case ">=":
-                            showGreaterEquals(number);
-                            break;
-                        case ">":
-                            showGreaterThan(number);
-                    }
+    protected void onFilterContents(ActionEvent event) {
+        System.out.println("onFilterContents method active");
+        contents.getCellValueFactory();
+        observableList=FXCollections.observableArrayList(listRegister.getList());
+        tableView.setItems(observableList);
+
+        String contents=searchField.textProperty().getValue();
+        for (int i = 0; i < observableList.size(); i++) {
+            if (!(observableList.get(i).getContentsProperty().contains(contents))) {
+                observableList.remove(i);
+                i--;
+            }
         }
         tableView.refresh();
-    }
-     */
+        }
 
     /**
      * When the Refresh-Button is clicked, the register gets loaded and all filters are reset.

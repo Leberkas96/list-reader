@@ -34,8 +34,8 @@
                     <ColumnConstraints hgrow="NEVER" maxWidth="10.0" minWidth="10.0" prefWidth="100.0" />
                     <ColumnConstraints hgrow="SOMETIMES" maxWidth="70.0" minWidth="10.0" prefWidth="93.40003662109376" />
                     <ColumnConstraints hgrow="SOMETIMES" maxWidth="450.0" minWidth="10.0" prefWidth="200.0" />
-                    <ColumnConstraints halignment="LEFT" hgrow="NEVER" maxWidth="95.7999389648437" minWidth="0.0" prefWidth="27.0" />
-                    <ColumnConstraints halignment="RIGHT" hgrow="ALWAYS" maxWidth="376.8000122070313" minWidth="7.8000610351562045" prefWidth="374.3999877929688" />
+                    <ColumnConstraints halignment="LEFT" hgrow="NEVER" maxWidth="163.9999877929688" minWidth="0.0" prefWidth="112.79997558593755" />
+                    <ColumnConstraints halignment="RIGHT" hgrow="ALWAYS" maxWidth="404.80000000000007" minWidth="7.8000610351562045" prefWidth="292.0000244140625" />
                <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" maxWidth="90.0" minWidth="0.0" prefWidth="0.0" />
                 </columnConstraints>
                 <rowConstraints>
@@ -45,7 +45,7 @@
                     <RowConstraints maxHeight="279.1999877929687" minHeight="0.0" prefHeight="260.0" valignment="BOTTOM" vgrow="NEVER" />
                     <RowConstraints maxHeight="272.0" minHeight="0.0" prefHeight="12.0" vgrow="NEVER" />
                 </rowConstraints>
-                <TextField fx:id="searchField" onAction="#onFilter" promptText="search" GridPane.columnIndex="2" GridPane.valignment="BOTTOM" />
+                <TextField fx:id="searchField" onAction="#onFilterContents" promptText="search" GridPane.columnIndex="2" GridPane.valignment="BOTTOM" />
                 <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
                     <ScrollPane hbarPolicy="ALWAYS" layoutX="-67.0" layoutY="10.0" prefHeight="633.0" prefWidth="998.0" vbarPolicy="ALWAYS">
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="216.0" prefWidth="387.0">
@@ -58,7 +58,7 @@
                         </AnchorPane>
                     </ScrollPane>
                 </Pane>
-                <Button fx:id="searchButton" alignment="CENTER" mnemonicParsing="false" onAction="#onFilter" prefWidth="27.0" text="🜄" GridPane.columnIndex="3" GridPane.valignment="BOTTOM" />
+                <Button fx:id="searchButton" alignment="CENTER" mnemonicParsing="false" onAction="#onFilterContents" prefWidth="81.0" text="Search" GridPane.columnIndex="3" GridPane.valignment="BOTTOM" />
             <Button fx:id="refreshButton" mnemonicParsing="false" onAction="#onRefreshButton" prefWidth="32.0" text="⟳" GridPane.columnIndex="5">
                <font>
                   <Font name="System Bold" size="12.0" />
