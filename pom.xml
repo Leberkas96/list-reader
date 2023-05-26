@@ -20,12 +20,6 @@
             <artifactId>javafx-controls</artifactId>
             <version>17.0.2</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-databind</artifactId>
-            <version>2.13.3</version>
-        </dependency>
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-fxml</artifactId>
@@ -48,6 +42,12 @@
             <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
+        <!-- JSON Libary Jackson -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.13.3</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -59,6 +59,11 @@
                 <configuration>
                     <source>17</source>
                     <target>17</target>
+                    <compilerArgs>
+                        <arg>
+                            --add-opens=javafx.graphics/javafx.scene=org.controlsfx.controls
+                        </arg>
+                    </compilerArgs>
                 </configuration>
             </plugin>
             <plugin>
@@ -70,6 +75,17 @@
                         <!-- Default configuration for running with: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
+                            <mainClass>
+                                list.listreader/list.listreader.App
+                            </mainClass>
+                            <options>
+                                <option>
+                                    --add-opens=javafx.graphics/javafx.scene=org.controlsfx.controls
+                                </option>
+                            </options>
+
+                            <jlinkImageName>${project.artifactId}</jlinkImageName>
+                            <!--
                             <mainClass>list.listreader/list.listreader.App</mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>
@@ -77,9 +93,24 @@
                             <noManPages>true</noManPages>
                             <stripDebug>true</stripDebug>
                             <noHeaderFiles>true</noHeaderFiles>
+                            -->
                         </configuration>
                     </execution>
                 </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.panteleyev</groupId>
+                <artifactId>jpackage-maven-plugin</artifactId>
+                <version>1.4.0</version>
+                <configuration>
+                    <name>${project.artifactId}</name>
+                    <appVersion>${project.version}</appVersion>
+                    <vendor>enzonoe</vendor>
+                    <module>list.listreader/list.listreader.App</module>
+                    <runtimeImage>target/${project.artifactId}</runtimeImage>
+                    <type>MSI</type>
+                    <destination>target/dist</destination>
+                </configuration>
             </plugin>
         </plugins>
     </build>

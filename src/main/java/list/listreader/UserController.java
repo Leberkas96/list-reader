@@ -106,7 +106,7 @@ public class UserController {
             checkBox.getCellObservableValue(i).getValue().selectedProperty().bindBidirectional(list.getCheckBoxProperty().selectedProperty());
         }
         CsvManager.setData(tableView.getSelectionModel().getFocusedIndex(), false, listRegister.getList());
-        listRegister.loadRegister();
+        onRefreshButton(event);
         tableView.refresh();
     }
 }
