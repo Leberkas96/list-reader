@@ -106,6 +106,10 @@ public class UserController {
             checkBox.getCellObservableValue(i).getValue().selectedProperty().bindBidirectional(list.getCheckBoxProperty().selectedProperty());
         }
         CsvManager.setData(tableView.getSelectionModel().getFocusedIndex(), false, listRegister.getList());
+
+        //File configFile = new File(App.MODEL_FILE_PATH);
+        //App.JSON_MAPPER.writerWithDefaultPrettyPrinter().writeValue(configFile, list);
+
         onRefreshButton(event);
         tableView.refresh();
     }

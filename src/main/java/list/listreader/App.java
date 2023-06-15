@@ -13,8 +13,8 @@ public class App extends Application {
     private static Scene scene;
     public static final String APP_NAME = "List-Reader";
     public static final String CONFIG_DIR_PATH = System.getProperty("user.home") + "/." + APP_NAME;
-    public static final String MODEL_FILE_PATH = CONFIG_DIR_PATH + "/list.json";
-    public static final ObjectMapper JSON_MAPPER = new ObjectMapper();
+    //public static final String MODEL_FILE_PATH = CONFIG_DIR_PATH + "/list.json";
+    //public static final ObjectMapper JSON_MAPPER = new ObjectMapper();
 
     @Override
     public void start(Stage stage) {

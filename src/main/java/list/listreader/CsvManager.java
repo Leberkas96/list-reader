@@ -18,6 +18,7 @@ public class CsvManager {
         var path = Paths.get("list.csv");
         ArrayList<List> tmpList = new ArrayList<>();
         try {
+            //System.out.println(App.CONFIG_DIR_PATH+"/list.csv");
             for (String line : Files.readAllLines(path)) {
                 if (line.contains(";")) {
                     String[] text = line.split(";");

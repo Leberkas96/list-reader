@@ -6,7 +6,7 @@
 
     <groupId>list</groupId>
     <artifactId>list-reader</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0.0</version>
     <name>list-reader</name>
 
     <properties>
@@ -70,6 +70,7 @@
                 <groupId>org.openjfx</groupId>
                 <artifactId>javafx-maven-plugin</artifactId>
                 <version>0.0.8</version>
+
                 <executions>
                     <execution>
                         <!-- Default configuration for running with: mvn clean javafx:run -->
@@ -98,6 +99,7 @@
                     </execution>
                 </executions>
             </plugin>
+
             <plugin>
                 <groupId>org.panteleyev</groupId>
                 <artifactId>jpackage-maven-plugin</artifactId>
@@ -112,6 +114,7 @@
                     <destination>target/dist</destination>
                 </configuration>
             </plugin>
+
         </plugins>
     </build>
 </project>
