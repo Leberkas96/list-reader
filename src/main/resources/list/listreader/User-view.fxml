@@ -24,12 +24,15 @@
                         <Font name="System Bold Italic" size="24.0" />
                     </font>
                 </Label>
-            <Pane prefHeight="35.0" prefWidth="822.0" />
+            <Pane prefHeight="35.0" prefWidth="822.0">
+               <children>
+                  <Button fx:id="openFile" layoutX="762.0" layoutY="5.0" mnemonicParsing="false" text="Open" />
+               </children></Pane>
             <Button fx:id="saveButton" mnemonicParsing="false" onAction="#onSave" text="Save" />
             </ToolBar>
         </top>
-        <bottom>
-            <GridPane minHeight="768.0" minWidth="1024.0" BorderPane.alignment="CENTER">
+      <center>
+            <GridPane fx:id="gridpane" minHeight="768.0" minWidth="1024.0" BorderPane.alignment="CENTER">
                 <columnConstraints>
                     <ColumnConstraints hgrow="NEVER" maxWidth="10.0" minWidth="10.0" prefWidth="100.0" />
                     <ColumnConstraints hgrow="SOMETIMES" maxWidth="70.0" minWidth="10.0" prefWidth="93.40003662109376" />
@@ -54,16 +57,14 @@
                            <TableColumn fx:id="contents" prefWidth="199.0" text="Contents" />
                            <TableColumn fx:id="check" prefWidth="189.0" text="Check" />
                            <TableColumn fx:id="checkBox" prefWidth="213.0" text="Checkbox" />
-                        </columns></TableView>
+                        </columns>
+                     </TableView>
                         </AnchorPane>
                     </ScrollPane>
                 </Pane>
                 <Button fx:id="searchButton" alignment="CENTER" mnemonicParsing="false" onAction="#onFilterContents" prefWidth="81.0" text="Search" GridPane.columnIndex="3" GridPane.valignment="BOTTOM" />
-            <Button fx:id="refreshButton" mnemonicParsing="false" onAction="#onRefreshButton" prefWidth="32.0" text="⟳" GridPane.columnIndex="5">
-               <font>
-                  <Font name="System Bold" size="12.0" />
-               </font></Button>
+            <Button fx:id="refreshButton" mnemonicParsing="false" onAction="#onRefreshButton" prefHeight="26.0" prefWidth="61.0" text="Refresh" GridPane.columnIndex="5" GridPane.halignment="LEFT" />
             </GridPane>
-        </bottom>
+      </center>
     </BorderPane>
 </AnchorPane>

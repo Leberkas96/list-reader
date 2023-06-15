@@ -8,8 +8,11 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.GridPane;
+import javafx.stage.DirectoryChooser;
 import javafx.stage.Window;
 import org.controlsfx.control.PropertySheet;
+import org.controlsfx.control.spreadsheet.Grid;
 import org.controlsfx.validation.ValidationResult;
 import org.controlsfx.validation.ValidationSupport;
 import org.controlsfx.validation.Validator;
@@ -31,11 +34,11 @@ public class UserController {
     @FXML
     private TableColumn<List, CheckBox> checkBox;
     @FXML
+    private Button openFile;
+    @FXML
     public Button refreshButton;
     @FXML
     public Button searchButton;
-    @FXML
-    private Button saveButton;
     @FXML
     private TextField searchField;
     private List list;
@@ -44,6 +47,7 @@ public class UserController {
 
     public void init(List list) {
         this.list = list;
+        //gridPane.add(directoryChooser,4,0);
         contents.setCellValueFactory(new PropertyValueFactory<>("contentsProperty"));
         check.setCellValueFactory(new PropertyValueFactory<>("checkProperty"));
         checkBox.setCellValueFactory(new PropertyValueFactory<>("checkBox"));
@@ -70,10 +74,10 @@ public class UserController {
     protected void onFilterContents(ActionEvent event) {
         System.out.println("onFilterContents method active");
         contents.getCellValueFactory();
-        observableList=FXCollections.observableArrayList(listRegister.getList());
+        observableList = FXCollections.observableArrayList(listRegister.getList());
         tableView.setItems(observableList);
 
-        String contents=searchField.textProperty().getValue();
+        String contents = searchField.textProperty().getValue();
         for (int i = 0; i < observableList.size(); i++) {
             if (!(observableList.get(i).getContentsProperty().contains(contents))) {
                 observableList.remove(i);
@@ -81,7 +85,7 @@ public class UserController {
             }
         }
         tableView.refresh();
-        }
+    }
 
     /**
      * When the Refresh-Button is clicked, the register gets loaded and all filters are reset.
