@@ -117,4 +117,9 @@ public class UserController {
         onRefreshButton(event);
         tableView.refresh();
     }
+
+    @FXML
+    protected void onOpenFile() {
+
+    }
 }
