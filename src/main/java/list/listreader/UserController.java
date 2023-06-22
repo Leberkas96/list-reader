@@ -72,6 +72,7 @@ public class UserController {
      */
     @FXML
     protected void onFilterContents(ActionEvent event) {
+        //assertTrue(src.matches("(?i).*" + dest + ".*"));
         System.out.println("onFilterContents method active");
         contents.getCellValueFactory();
         observableList = FXCollections.observableArrayList(listRegister.getList());
@@ -79,7 +80,13 @@ public class UserController {
 
         String contents = searchField.textProperty().getValue();
         for (int i = 0; i < observableList.size(); i++) {
-            if (!(observableList.get(i).getContentsProperty().contains(contents))) {
+            /*if (!(observableList.get(i).getContentsProperty().contains(contents))) {
+                observableList.remove(i);
+                i--;
+            }
+
+             */
+            if (!(observableList.get(i).getContentsProperty().toLowerCase().contains(contents.toLowerCase()))) {
                 observableList.remove(i);
                 i--;
             }
