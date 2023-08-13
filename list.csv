@@ -2,7 +2,7 @@ Life Ring;true
 Life Ring +1;false
 Life Ring +2;false
 Life Ring +3;false
-Sun Princess Ring;false
+Sun Princess Ring;true
 Estus Ring;true
 Ashen Estus Ring;false
 Chloranthy Ring;true
@@ -39,11 +39,11 @@ Poisonbite Ring + 1;false
 Cursebite Ring;false
 Fleshbite Ring;false
 Fleshbite Ring + 1;false
-Knight's Ring;false
+Knight's Ring;true
 Hunter's Ring;false
 Scholar Ring;false
 Priestess Ring;false
-Covetous Gold Serpent Ring;false
+Covetous Gold Serpent Ring;true
 Covetous Gold Serpent Ring + 1;false
 Covetous Gold Serpent Ring + 2;false
 Covetous Silver Serpent Ring;true
@@ -75,7 +75,7 @@ Knight Slayer's Ring;false
 Ring of the Evil Eye;true
 Ring of the Evil Eye + 1;false
 Ring of the Evil Eye + 2;false
-Farron Ring;false
+Farron Ring;true
 Dragonscale Ring;false
 Horsehoof ring;true
 Wood Grain Ring;true
