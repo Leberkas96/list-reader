@@ -65,6 +65,10 @@ public class UserController {
         tableView.setItems(observableList);
 
         String contents = searchField.textProperty().getValue();
+
+        // same - probably easier to read ig
+        observableList.removeIf(entry -> !entry.getContentsProperty().toLowerCase().contains(contents.toLowerCase()));
+
         for (int i = 0; i < observableList.size(); i++) {
             /*if (!(observableList.get(i).getContentsProperty().contains(contents))) {
                 observableList.remove(i);
@@ -73,7 +77,7 @@ public class UserController {
 
              */
             if (!(observableList.get(i).getContentsProperty().toLowerCase().contains(contents.toLowerCase()))) {
-                observableList.remove(i);
+                //observableList.remove(i);
                 i--;
             }
         }
