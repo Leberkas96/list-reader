@@ -2,9 +2,9 @@ Life Ring;true
 Life Ring +1;false
 Life Ring +2;false
 Life Ring +3;false
-Sun Princess Ring;false
+Sun Princess Ring;true
 Estus Ring;true
-Ashen Estus Ring;false
+Ashen Estus Ring;true
 Chloranthy Ring;true
 Chloranthy ring +1;false
 Chloranthy ring +2;false
@@ -14,17 +14,17 @@ Havels Ring + 2;false
 Ring of Favor;true
 Ring of Favor + 1;false
 Ring of Favor + 2;false
-Prisoners Chain;false
-Ring of Steel Protection;false
+Prisoners Chain;true
+Ring of Steel Protection;true
 Ring of Steel Protection + 1;false
 Ring of Steel Protection + 2;false
-Magic Stoneplate Ring ;false
-Magic Stoneplate Ring +1;false
+Magic Stoneplate Ring ;true
+Magic Stoneplate Ring +1;true
 Magic Stoneplate Ring + 2;false
 Flame Stoneplate Ring;true
 Flame Stoneplate Ring + 1;false
 Flame Stoneplate Ring + 2;false
-Thunder Stoneplate Ring;false
+Thunder Stoneplate Ring;true
 Thunder Stoneplate Ring + 1;false
 Thunder Stoneplate Ring + 2;false
 Dark Stoneplate Ring;true
@@ -36,14 +36,14 @@ Bloodbite Ring;true
 Bloodbite Ring + 1;false
 Poisonbite Ring;true
 Poisonbite Ring + 1;false
-Cursebite Ring;false
-Fleshbite Ring;false
+Cursebite Ring;true
+Fleshbite Ring;true
 Fleshbite Ring + 1;false
-Knight's Ring;false
-Hunter's Ring;false
-Scholar Ring;false
-Priestess Ring;false
-Covetous Gold Serpent Ring;false
+Knight's Ring;true
+Hunter's Ring;true
+Scholar Ring;true
+Priestess Ring;true
+Covetous Gold Serpent Ring;true
 Covetous Gold Serpent Ring + 1;false
 Covetous Gold Serpent Ring + 2;false
 Covetous Silver Serpent Ring;true
@@ -53,40 +53,40 @@ Saints Ring;true
 Deep Ring;true
 Darkmoon Ring;false
 Young Dragon Ring;true
-Bellowing Dragoncrest Ring;false
-Great Swamp Ring;false
+Bellowing Dragoncrest Ring;true
+Great Swamp Ring;true
 Witch's Ring;true
 Morne's Ring;true
 Ring of the Sun's First Born;true
-Lingering Dragoncrest Ring;false
+Lingering Dragoncrest Ring;true
 Lingering Dragoncrest Ring + 1;false
 Lingering Dragoncrest Ring + 2;false
 Sage's Ring;true
 Sage's Ring + 1;false
 Sage's Ring + 2;false
-Dusk Crown Ring;false
+Dusk Crown Ring;true
 Leo Ring;true
 Wolf Ring;false
-Wolf Ring +1;false
+Wolf Ring +1;true
 Wolf Ring +2;false
-Hawk Ring;false
+Hawk Ring;true
 Hornet Ring;false
-Knight Slayer's Ring;false
+Knight Slayer's Ring;true
 Ring of the Evil Eye;true
 Ring of the Evil Eye + 1;false
 Ring of the Evil Eye + 2;false
-Farron Ring;false
-Dragonscale Ring;false
+Farron Ring;true
+Dragonscale Ring;true
 Horsehoof ring;true
 Wood Grain Ring;true
 Wood Grain Ring + 1;false
 Wood Grain Ring + 2;false
 Flynn's Ring;true
 Magic Clutch Ring;true
-Lightning Clutch Ring;false
+Lightning Clutch Ring;true
 Fire Clutch Ring;true
 Dark Clutch Ring;true
-Red Tearstone Ring;false
+Red Tearstone Ring;true
 Blue Tearstone Ring;true
 Lloyd's Sword Ring;true
 Lloyd's Shield Ring;true
@@ -94,14 +94,14 @@ Carthus Milkring;true
 Carthus Bloodring;true
 Pontiff's Right Eye;true
 Pontiff's Left Eye;true
-Aldrich's Ruby;false
+Aldrich's Ruby;true
 Aldrich's Sapphire;true
 Silvercat Ring;false
 Slumbering Dragoncrest Ring;true
 Obscuring Ring;false
 Untrue Dark Ring;true
 Untrue White Ring;true
-Reversal Ring;false
-Skull Ring;false
-Calamity Ring;false
+Reversal Ring;true
+Skull Ring;true
+Calamity Ring;true
 Ring of Sacrifice;true
