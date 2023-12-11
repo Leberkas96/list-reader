@@ -4,24 +4,10 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.layout.GridPane;
-import javafx.stage.DirectoryChooser;
-import javafx.stage.Window;
-import org.controlsfx.control.PropertySheet;
-import org.controlsfx.control.spreadsheet.Grid;
-import org.controlsfx.validation.ValidationResult;
-import org.controlsfx.validation.ValidationSupport;
-import org.controlsfx.validation.Validator;
 
-import java.io.File;
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
-
 
 public class UserController {
     private ListRegister listRegister = ListRegister.getRegister();
@@ -72,15 +58,26 @@ public class UserController {
      */
     @FXML
     protected void onFilterContents(ActionEvent event) {
+        //assertTrue(src.matches("(?i).*" + dest + ".*"));
         System.out.println("onFilterContents method active");
         contents.getCellValueFactory();
         observableList = FXCollections.observableArrayList(listRegister.getList());
         tableView.setItems(observableList);
 
         String contents = searchField.textProperty().getValue();
+
+        // same - probably easier to read ig
+        observableList.removeIf(entry -> !entry.getContentsProperty().toLowerCase().contains(contents.toLowerCase()));
+
         for (int i = 0; i < observableList.size(); i++) {
-            if (!(observableList.get(i).getContentsProperty().contains(contents))) {
+            /*if (!(observableList.get(i).getContentsProperty().contains(contents))) {
                 observableList.remove(i);
+                i--;
+            }
+
+             */
+            if (!(observableList.get(i).getContentsProperty().toLowerCase().contains(contents.toLowerCase()))) {
+                //observableList.remove(i);
                 i--;
             }
         }
@@ -120,6 +117,7 @@ public class UserController {
 
     @FXML
     protected void onOpenFile() {
-
+        // do not forget the mechanic
+        // lg elftausend
     }
 }
