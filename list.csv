@@ -59,7 +59,7 @@ Witch's Ring;true
 Morne's Ring;true
 Ring of the Sun's First Born;true
 Lingering Dragoncrest Ring;true
-Lingering Dragoncrest Ring + 1;false
+Lingering Dragoncrest Ring + 1;true
 Lingering Dragoncrest Ring + 2;false
 Sage's Ring;true
 Sage's Ring + 1;false
@@ -73,7 +73,7 @@ Hawk Ring;true
 Hornet Ring;false
 Knight Slayer's Ring;true
 Ring of the Evil Eye;true
-Ring of the Evil Eye + 1;false
+Ring of the Evil Eye + 1;true
 Ring of the Evil Eye + 2;false
 Farron Ring;true
 Dragonscale Ring;true
